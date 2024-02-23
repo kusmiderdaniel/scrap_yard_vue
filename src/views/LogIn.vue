@@ -31,8 +31,13 @@
                 </form>
 
                 <hr>
-
-                <router-link to="/sign-up">Kliknij tutaj</router-link> aby się zarejestrować
+                <!-- <router-link to="/sign-up">Kliknij tutaj</router-link> aby się zarejestrować -->
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column is-6 is-offset-3 has-text-centered">
+                <p>ZłomApp jest na razie w fazie testów, więc dostęp ma tylko niewielkie grono użytkowników.</p>
+                <p>Jeśli jesteś zainteresowany korzystaniem z platformy skontaktuj się z administratorem mailowo - kusmiderdaniel@gmail.com</p>
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@
                 <h1 class="title">Nowy produkt</h1>
             </div>
 
-            <div class="column is-6">
+            <div class="column is-6-desktop is-12-tablet">
                 <div class="field">
                     <label class="label">Kategoria</label>
 
@@ -30,9 +30,9 @@
                         </select>
                     </div>
 
-                    <router-link to="/dashboard/items/add-category" class="button is-info">Nowa kategoria</router-link>
+                    <router-link to="/dashboard/items/add-category" class="button is-light">+</router-link>
                 </div>
-
+                
                 <div class="field">
                     <label class="label">Nazwa</label>
                     
@@ -124,7 +124,11 @@ export default {
         confirmCancel() {
             const confirmMessage = `Czy na pewno chcesz anluować wprowadzanie produktu?`
 
-            if (window.confirm(confirmMessage)) {
+            if (this.item.name != '') {
+                if (window.confirm(confirmMessage)) {
+                    this.$router.push('/dashboard/items')
+                }
+            } else {
                 this.$router.push('/dashboard/items')
             }
         },

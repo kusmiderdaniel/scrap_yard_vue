@@ -13,7 +13,7 @@
                 <h1 class="title">Nowy kwit</h1>
             </div>
 
-            <div class="column is-3">
+            <div class="column is-3-tablet is-12-mobile">
                 <div class="field">
                     <label>Numer kwitu</label>
 
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <div class="column is-3">
+            <div class="column is-3-tablet is-12-mobile">
                 <div class="field">
                     <label>Data kwitu</label>
 
@@ -70,7 +70,7 @@
                 >
                 </ItemForm>
 
-                <button class="button is-light" @click="addItem">+</button>
+                <button class="button is-success is-rounded is-outlined" style="width: 2.5em" @click="addItem">+</button>
             </div>
         </div>
 
@@ -82,7 +82,7 @@
 
         <div class="column is-12">
             <button class="button is-success mr-4" @click="submitForm">Zapisz</button>
-            <button class="button is-success mr-4" @click="getPdf">Zapisz i pobierz PDF</button>
+            <button class="button is-dark mr-4" @click="getPdf">Zapisz i pobierz PDF</button>
             <button class="button is-danger" @click="confirmCancel(receipt)">Anuluj</button>
         </div>
     </div>

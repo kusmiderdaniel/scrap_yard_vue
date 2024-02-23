@@ -275,7 +275,7 @@ export default {
                         position: 'bottom-right',
                     })
 
-                    this.$router.push('/dashboard/my-account')
+                    this.$router.push('/dashboard')
                 })
                 .catch(error => {
                     console.log(JSON.stringify(error))

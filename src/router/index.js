@@ -3,17 +3,19 @@ import HomeView from '../views/HomeView.vue'
 import Dashboard from '../views/dashboard/Dashboard.vue'
 import SignUp from '../views/SignUp.vue'
 import LogIn from '../views/LogIn.vue'
-import MyAccount from '../views/dashboard/MyAccount.vue'
+import MyAccount from '../views/archive/MyAccount.vue'
 import EditTeam from '../views/dashboard/EditTeam.vue'
 import Clients from '../views/dashboard/Clients.vue'
 import Client from '../views/dashboard/Client.vue'
 import AddClient from '../views/dashboard/AddClient.vue'
 import EditClient from '../views/dashboard/EditClient.vue'
 import Items from '../views/dashboard/Items.vue'
+import ItemStatistics from '../views/dashboard/ItemStatistics.vue'
 import AddCategory from '../views/dashboard/AddCategory.vue'
 import AddItem from '../views/dashboard/AddItem.vue'
 import EditItem from '../views/dashboard/EditItem.vue'
 import Receipts from '../views/dashboard/Receipts.vue'
+import ReceiptsAcounting from '../views/dashboard/ReceiptsAcounting.vue'
 import AddReceipt from '../views/dashboard/AddReceipt.vue'
 import Receipt from '../views/dashboard/Receipt.vue'
 import EditReceipt from '../views/dashboard/EditReceipt.vue'
@@ -101,6 +103,14 @@ const routes = [
     }
   },
   {
+    path: '/dashboard/items/stats',
+    name: 'ItemStatistics',
+    component: ItemStatistics,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
     path: '/dashboard/items/add-category',
     name: 'AddCategory',
     component: AddCategory,
@@ -128,6 +138,14 @@ const routes = [
     path: '/dashboard/receipts',
     name: 'Receipts',
     component: Receipts,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
+    path: '/dashboard/receipts/accounting',
+    name: 'ReceiptsAcounting',
+    component: ReceiptsAcounting,
     meta: {
       requireLogin: true
     }

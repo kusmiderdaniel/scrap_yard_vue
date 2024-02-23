@@ -5,7 +5,7 @@
                 <h1 class="title">Dashboard</h1>
             </div>
 
-            <div class="column is-8" v-if="receipts">
+            <div class="column is-8-desktop is-12-tablet" v-if="receipts">
                 <div class="box">
                     <h1 class="title is-4">Dzisiaj</h1>
                     <div class="columns">
@@ -35,38 +35,40 @@
                 </div>
 
                 <div class="box">
-                    <h2 class="title is-5">Dzisiejsze kwity</h2>
+                    <h2 class="title is-4">Dzisiejsze kwity</h2>
 
-                    <table class="table is-fullwidth">
-                        <thead>
-                            <tr>
-                                <th>Numer</th>
-                                <th>Klient</th>
-                                <th class="has-text-centered">Data</th>
-                                <th style="width: 120px;">Wartość</th>
-                                <th></th>
-                            </tr>
-                        </thead>
+                    <div class="table-container">
+                        <table class="table is-fullwidth">
+                            <thead>
+                                <tr>
+                                    <th>Numer</th>
+                                    <th>Klient</th>
+                                    <th class="has-text-centered">Data</th>
+                                    <th style="width: 120px;">Wartość</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
 
-                        <tbody>
-                            <tr
-                                v-for="receipt in receipts"
-                                v-bind:key="receipt.id"
-                            >
-                                <td>{{ receipt.receipt_number }}</td>
-                                <td>{{ receipt.client_name }}</td>
-                                <td class="has-text-centered">{{ receipt.date }}</td>
-                                <td class="has-text-right">{{ receipt.gross_amount }} zł</td>
-                                <td class="has-text-right">
-                                    <router-link :to="{ name: 'Receipt', params: { id: receipt.id } }">Szczegóły</router-link>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <tbody>
+                                <tr
+                                    v-for="receipt in receipts"
+                                    v-bind:key="receipt.id"
+                                >
+                                    <td>{{ receipt.receipt_number }}</td>
+                                    <td>{{ receipt.client_name }}</td>
+                                    <td class="has-text-centered">{{ receipt.date }}</td>
+                                    <td class="has-text-right">{{ receipt.gross_amount }} zł</td>
+                                    <td class="has-text-right">
+                                        <router-link :to="{ name: 'Receipt', params: { id: receipt.id } }">Szczegóły</router-link>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
-            <div class="column is-4">
+            <div class="column is-4-desktop is-12-tablet">
                 <div class="box">
                     <h2 class="title is-5">Twoja firma</h2>
                     <router-link to="/dashboard/my-account/edit-team" class="button is-light">Edytuj dane firmy</router-link>

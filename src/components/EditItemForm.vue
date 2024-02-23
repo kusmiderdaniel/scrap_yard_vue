@@ -1,5 +1,5 @@
 <template>
-    <div class="columns">
+    <div class="columns box mb-4">
 
         <div class="column is-3">
             <label>Produkt</label>

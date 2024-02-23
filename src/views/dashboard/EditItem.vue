@@ -31,7 +31,7 @@
                         <!-- </div> -->
                     </div>
 
-                    <router-link to="/dashboard/items/add-category" class="button is-info">Nowa kategoria</router-link>
+                    <router-link to="/dashboard/items/add-category" class="button is-light">+</router-link>
                 </div>
 
                 <div class="field">

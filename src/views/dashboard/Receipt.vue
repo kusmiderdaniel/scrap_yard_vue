@@ -47,31 +47,32 @@
             <div class="column is-12 mb-4">
                 <div class="box">
                     <h3 class="is-size-4 mb-5">Produkty</h3>
+                    <div class="table-container">
+                        <table class="table is-fullwidth">
+                            <thead>
+                                <tr>
+                                    <th><div style="width: 120px;">Produkt</div></th>
+                                    <th><div class="has-text-centered">Kod odpadu</div></th>
+                                    <th><div style="width: 80px;" class="has-text-centered">Ilość</div></th>
+                                    <th><div style="width: 100px;" class="has-text-centered">Cena skupu</div></th>
+                                    <th><div style="width: 100px;" class="has-text-centered">Wartość</div></th>
+                                </tr>
+                            </thead>
 
-                    <table class="table is-fullwidth">
-                        <thead>
-                            <tr>
-                                <th><div style="width: 120px;">Produkt</div></th>
-                                <th><div class="has-text-centered">Kod odpadu</div></th>
-                                <th><div class="has-text-centered">Ilość</div></th>
-                                <th><div class="has-text-centered">Cena skupu</div></th>
-                                <th><div class="has-text-centered">Wartość</div></th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr 
-                                v-for="item in receipt.receipt_items"
-                                v-bind:key="item.id"
-                            >
-                                <td>{{ item.name }}</td>
-                                <td class="has-text-centered">{{ item.item_code }}</td>
-                                <td class="has-text-right">{{ item.quantity }} kg</td>
-                                <td class="has-text-right">{{ item.buy_price }} zł</td>
-                                <td class="has-text-right">{{ getItemTotal(item) }} zł</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <tbody>
+                                <tr 
+                                    v-for="item in receipt.receipt_items"
+                                    v-bind:key="item.id"
+                                >
+                                    <td>{{ item.name }}</td>
+                                    <td class="has-text-centered">{{ item.item_code }}</td>
+                                    <td class="has-text-right">{{ item.quantity }} kg</td>
+                                    <td class="has-text-right">{{ item.buy_price }} zł</td>
+                                    <td class="has-text-right">{{ getItemTotal(item) }} zł</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

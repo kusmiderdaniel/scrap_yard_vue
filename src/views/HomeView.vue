@@ -1,16 +1,25 @@
 <template>
   <div class="home">
-    <h1 class="title has-text-centered">Witaj na Złomie</h1>
-    <section class="section">
-      <div class="container">
-        <!-- Start Carousel -->
-        <div id="carousel-demo" class="carousel">
+    <h1 class="title has-text-centered"><u>Witaj na Złomie</u></h1>
+
+    <hr>
+    
+    <div>
+      <swiper-container
+        slides-per-view="1"
+        grid-rows="1"
+        mousewheel-force-to-axis="true"
+        navigation="true"
+        loop="true"
+        autoplay="true"
+      >
+        <swiper-slide>
           <div class="item-1">
             <!-- Slide Content -->
             <div class="center-image">
               <div class="columns is-multiline">
                 <div class="column is-12">
-                  <h1 class="subtitle has-text-centered">Podglądaj najważniejsze informacje</h1>
+                  <h1 class="title is-4 has-text-centered">Podglądaj najważniejsze informacje</h1>
                 </div>
                 <div class="column is-12 has-text-centered">
                   <img src="../assets/Dashboard.png" alt="Metal Image" width="1000" height="1000">
@@ -18,12 +27,14 @@
               </div>
             </div>
           </div>
+        </swiper-slide>
+        <swiper-slide>
           <div class="item-2">
             <!-- Slide Content -->
             <div class="center-image">
               <div class="columns is-multiline">
                 <div class="column is-12">
-                  <h1 class="subtitle has-text-centered">Przechowuj informacje o kontrahentach</h1>
+                  <h1 class="title is-4 has-text-centered">Przechowuj informacje o kontrahentach</h1>
                 </div>
                 <div class="column is-12 has-text-centered">
                   <img src="../assets/Kontrahenci.png" alt="Metal Image" width="1000" height="1000">
@@ -31,12 +42,14 @@
               </div>
             </div>
           </div>
+        </swiper-slide>
+        <swiper-slide>
           <div class="item-3">
             <!-- Slide Content -->
             <div class="center-image">
               <div class="columns is-multiline">
                 <div class="column is-12">
-                  <h1 class="subtitle has-text-centered">Dodaj swoje produkty wg kategorii</h1>
+                  <h1 class="title is-4 has-text-centered">Dodaj swoje produkty wg kategorii</h1>
                 </div>
                 <div class="column is-12 has-text-centered">
                   <img src="../assets/Produkty.png" alt="Metal Image" width="1000" height="200">
@@ -44,12 +57,14 @@
               </div>
             </div>
           </div>
+        </swiper-slide>
+        <swiper-slide>
           <div class="item-4">
             <!-- Slide Content -->
             <div class="center-image">
               <div class="columns is-multiline">
                 <div class="column is-12">
-                  <h1 class="subtitle has-text-centered">Twórz nowe kwity</h1>
+                  <h1 class="title is-4 has-text-centered">Twórz nowe kwity</h1>
                 </div>
                 <div class="column is-12 has-text-centered">
                   <img src="../assets/Nowy kwit.png" alt="Metal Image" width="1000" height="1000">
@@ -57,12 +72,14 @@
               </div>
             </div>
           </div>
+        </swiper-slide>
+        <swiper-slide>
           <div class="item-5">
             <!-- Slide Content -->
             <div class="center-image">
               <div class="columns is-multiline">
                 <div class="column is-12">
-                  <h1 class="subtitle has-text-centered">Dodawaj produkty do kwitów</h1>
+                  <h1 class="title is-4 has-text-centered">Dodawaj produkty do kwitów</h1>
                 </div>
                 <div class="column is-12 has-text-centered">
                   <img src="../assets/Kwit_produkty.png" alt="Metal Image" width="1000" height="1000">
@@ -70,12 +87,14 @@
               </div>
             </div>
           </div>
+        </swiper-slide>
+        <swiper-slide>
           <div class="item-6">
             <!-- Slide Content -->
             <div class="center-image">
               <div class="columns is-multiline">
                 <div class="column is-12">
-                  <h1 class="subtitle has-text-centered">Przeglądaj transakcje związane z danym kontrahentem</h1>
+                  <h1 class="title is-4 has-text-centered">Przeglądaj transakcje związane z danym kontrahentem</h1>
                 </div>
                 <div class="column is-12 has-text-centered">
                   <img src="../assets/Kontrahent.png" alt="Metal Image" width="1000" height="1000">
@@ -83,12 +102,14 @@
               </div>
             </div>
           </div>
+        </swiper-slide>
+        <swiper-slide>
           <div class="item-7">
             <!-- Slide Content -->
             <div class="center-image">
               <div class="columns is-multiline">
                 <div class="column is-12">
-                  <h1 class="subtitle has-text-centered">Pobieraj kwity w PDF i drukuj dwie kopie na jednej stronie A4</h1>
+                  <h1 class="title is-4 has-text-centered">Pobieraj kwity w PDF i drukuj dwie kopie na jednej stronie A4</h1>
                 </div>
                 <div class="column is-12 has-text-centered">
                   <img src="../assets/Kwit_PDF.png" alt="Metal Image" width="1000" height="1000">
@@ -96,10 +117,11 @@
               </div>
             </div>
           </div>
-        </div>
-        <!-- End Carousel -->
-      </div>
-    </section>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+
+    <hr>
 
     <div class="columns">
       <div class="description column is-6 content">
@@ -142,6 +164,10 @@
 </style>
 
 <script>
+// import function to register Swiper custom elements
+import { register } from 'swiper/element/bundle';
+// register Swiper custom elements
+register();
 export default {
   name: 'HomeView',
   mounted() {
@@ -151,6 +177,7 @@ export default {
       window.bulmaCarousel.attach('#carousel-demo', {
         slidesToScroll: 1,
         slidesToShow: 1,
+        breakpoints: [{ changePoint: 480, slidesToShow: 1, slidesToScroll: 1 }, { changePoint: 640, slidesToShow: 1, slidesToScroll: 1 }, { changePoint: 768, slidesToShow: 1, slidesToScroll: 1 } ]
       });
     }
   },

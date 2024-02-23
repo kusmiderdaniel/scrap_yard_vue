@@ -50,7 +50,11 @@ export default {
         confirmCancel() {
             const confirmMessage = `Czy na pewno chcesz anluować wprowadzanie kategorii?`
 
-            if (window.confirm(confirmMessage)) {
+            if (this.category.name != undefined) {
+                if (window.confirm(confirmMessage)) {
+                    this.$router.push('/dashboard/items')
+                }
+            } else {
                 this.$router.push('/dashboard/items')
             }
         },

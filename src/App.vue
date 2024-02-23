@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-    <nav class="navbar is-dark" role="navigation" aria-label="main-navigation">
+    <nav class="navbar is-fixed-top is-dark" role="navigation" aria-label="main-navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
         </a>
@@ -43,7 +43,7 @@
           <template v-else>
             <div class="navbar-item">
               <div class="buttons">
-                <router-link to="/sign-up" class="button is-success"><strong>Rejestracja</strong></router-link>
+                <!-- <router-link to="/sign-up" class="button is-success"><strong>Rejestracja</strong></router-link> -->
                 <router-link to="/log-in" class="button is-light">Logowanie</router-link>
               </div>
             </div>

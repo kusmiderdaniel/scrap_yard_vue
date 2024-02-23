@@ -3,7 +3,7 @@
         <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul>
                 <li><router-link to="/dashboard">Dashboard</router-link></li>
-                <li class="is-active"><router-link to="/dashboard/my-account" aria-current="true">Produkty</router-link></li>
+                <li class="is-active"><router-link to="/dashboard/items" aria-current="true">Produkty</router-link></li>
             </ul>
         </nav>
 
@@ -12,46 +12,49 @@
                 <h1 class="title">Produkty</h1>
 
                 <div class="buttons">
-                    <button class="button is-success" @click="submitForm">Zapisz zmiany cen</button>
-                    <router-link to="/dashboard/items/add-category" class="button is-light">Nowa kategoria</router-link>
-                    <router-link to="/dashboard/items/add-item" class="button is-light">Nowy produkt</router-link>
+                    <button class="col-2 button is-success" @click="submitForm">Zapisz zmiany cen</button>
+                    <router-link to="/dashboard/items/add-category" class="col-2 button is-light">Nowa kategoria</router-link>
+                    <router-link to="/dashboard/items/add-item" class="col-2 button is-light">Nowy produkt</router-link>
+                    <router-link to="/dashboard/items/stats" class="col-2 button is-info">Statystyki</router-link>
                 </div>
             </div>
         </div>
 
         <div 
-            class="column is-8 box"
+            class="column is-10-desktop is-12-tablet box"
             v-for="category in categories"
             v-bind:key="category.id"
         >
             <h3 class="title is-4">{{ category.name }}</h3>
 
-            <table class="table is-hoverable">
-                <thead>
-                    <tr>
-                        <th><div style="width: 200px;">Produkt</div></th>
-                        <th><div style="width: 100px;">Kod odpadu</div></th>
-                        <th><div style="width: 150px;">Cena skupu</div></th>
-                        <th><div style="width: 150px;">Cena sprzedaży</div></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
+            <div class="table-container">
+                <table class="table is-hoverable">
+                    <thead>
+                        <tr>
+                            <th><div style="width: 200px;">Produkt</div></th>
+                            <th><div style="width: 100px;">Kod odpadu</div></th>
+                            <th><div style="width: 150px;">Cena skupu</div></th>
+                            <th><div style="width: 150px;">Cena sprzedaży</div></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    <tr
-                        v-for="item in items"
-                        v-bind:key="item.id"
-                    >
-                        <td v-if="item.category === category.id">{{ item.name }}</td>
-                        <td v-if="item.category === category.id"><div class="has-text-centered">{{ item.item_code }}</div></td>
-                        <td v-if="item.category === category.id"><input type="number" step="0.01" class="input is-small has-text-right" size="4" v-model="item.buy_price"></td>
-                        <td v-if="item.category === category.id"><input type="number" step="0.01" class="input is-small has-text-right" size="4" v-model="item.sell_price"></td>
-                        <td v-if="item.category === category.id"><router-link :to="{ name: 'EditItem', params: { id: item.id }}" class="button is-info is-small">Edytuj</router-link></td>
-                        <!-- <td v-if="item.category === category.id"><button class="button is-danger is-small" @click="confirmDelete(item)">Usuń</button></td> -->
-                    </tr>
-                </tbody>
-            </table>
+                    <tbody>
+                        <tr
+                            v-for="item in items"
+                            v-bind:key="item.id"
+                        >
+                            <td v-if="item.category === category.id">{{ item.name }}</td>
+                            <td v-if="item.category === category.id"><div class="has-text-centered">{{ item.item_code }}</div></td>
+                            <td v-if="item.category === category.id"><input type="number" step="0.01" class="input is-small has-text-right" size="4" v-model="item.buy_price"></td>
+                            <td v-if="item.category === category.id"><input type="number" step="0.01" class="input is-small has-text-right" size="4" v-model="item.sell_price"></td>
+                            <td v-if="item.category === category.id"><router-link :to="{ name: 'EditItem', params: { id: item.id }}" class="button is-info is-small">Edytuj</router-link></td>
+                            <!-- <td v-if="item.category === category.id"><button class="button is-danger is-small" @click="confirmDelete(item)">Usuń</button></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
         </div>
     </div>

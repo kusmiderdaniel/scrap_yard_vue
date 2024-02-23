@@ -61,7 +61,7 @@
             </div>
 
             <div class="column is-12">
-                <div class="box">
+                <div>
                     <h2 class="is-size-5 mb-4">Produkty</h2>
 
                     <EditItemForm
@@ -74,7 +74,7 @@
                     >
                     </EditItemForm>
 
-                    <button class="button is-light" @click="addItem">+</button>
+                    <button class="button is-success is-rounded is-outlined" style="width: 2.5em" @click="addItem">+</button>
                 </div>
             </div>
 

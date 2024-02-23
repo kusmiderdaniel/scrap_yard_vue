@@ -14,7 +14,7 @@
                 <router-link :to="{ name: 'AddClient' }" class="button is-light mt-4">Nowy kontrahent</router-link>
             </div>
 
-            <div class="column is-12">
+            <div class="column is-12 table-container">
                 <table class="table is-fullwidth">
                     <thead>
                         <tr>

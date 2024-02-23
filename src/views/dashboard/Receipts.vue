@@ -14,9 +14,10 @@
 
             <div class="column is-12 buttons">
                 <router-link to="/dashboard/receipts/add-receipt" class="button is-success">Nowy kwit</router-link>
+                <router-link to="/dashboard/receipts/accounting" class="button is-info">Zestawienie księgowe</router-link>
             </div>
 
-            <div class="column is-12">
+            <div class="column is-12 table-container">
                 <table class="table is-fullwidth">
                     <thead>
                         <tr>
@@ -38,7 +39,7 @@
                             <td>{{ formatDate(receipt.date) }}</td>
                             <td>{{ receipt.client_name }}</td>
                             <td>{{ receipt.client_doc_number }}</td>
-                            <td class="has-text-right">{{ receipt.gross_amount }} zł</td>
+                            <td class="has-text-right">{{ formatNumber(receipt.gross_amount) }} zł</td>
                             <td class="has-text-right">
                                 <router-link :to="{ name: 'Receipt', params: { id: receipt.id }}">Szczegóły</router-link>
                             </td>
@@ -79,6 +80,16 @@ export default {
         formatDate(date) {
             const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
             return new Date(date).toLocaleDateString(undefined, options);
+        },
+        formatNumber(number) {
+            // Convert number to string and split it into integer and decimal parts
+            const parts = Number(number).toFixed(2).toString().split('.');
+            const integerPart = parts[0];
+            const decimalPart = parts[1];
+            // Insert space every three digits in the integer part
+            const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+            // Concatenate formatted integer part with decimal part and return
+            return `${formattedInteger},${decimalPart}`;
         },
     }
 }
